@@ -1,0 +1,766 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+/*  Table of contents:
+
+    1. Global styles
+    2. Typography
+    3. Layout
+        3.1 Hero
+        3.2 Section
+        3.3 Header
+        3.4 Picture
+        3.5 Carousel
+        3.6 Enkelt opskrift
+        3.7 Navigation
+        3.8 Footer
+        3.9 Misc. Positions
+    4. Components
+        4.1 Search
+        4.2 Cards
+        4.3 Grid
+        4.4 Filter
+        4.5 Slider
+        4.6 Icons
+        4.7 CTA button
+    5. Media qurries
+*/
+
+/*  
+    ================
+    1. Global styles
+    ================
+*/
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 100%;
+  line-height: 1.75;
+}
+
+/*  
+    ==============
+    2. Typography
+    ==============
+*/
+
+/* ----- Font size is "Minor Third" from https://type-scale.com/ -----  */
+
+p {
+  padding-bottom: 1rem;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 3rem 0 1.38rem;
+  line-height: 1.3;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2.488rem;
+}
+
+h2 {font-size: 2.074rem;}
+
+h3 {font-size: 1.728rem;}
+
+h4 {font-size: 1.44rem;}
+
+h5 {font-size: 1.2rem;}
+
+.small-text {
+  font-size: 0.889rem;
+}
+
+.semi-bold {
+  font-weight: 700;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+a {
+  font-weight: 400;
+  text-decoration: none;
+  color: inherit;
+}
+
+.underline {
+  padding-bottom: 2px;
+  background: linear-gradient(var(--cssmall-color-primary), var(--cssmall-color-primary)) bottom;
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  transition: all 0.45s;
+}
+
+.underline:hover,  .underline:focus {
+  background-size: 50% 2px;
+  outline: none;
+}
+
+li {
+  list-style: initial;
+}
+
+/*  
+    =============
+    3. Layout
+    =============
+*/
+
+/* ----- 3.1 Hero ----- */
+
+#hero {
+  position: relative;
+  margin-bottom: var(--cssmall-spacing-xl);
+}
+
+#hero img {
+  height: 31rem;
+  width: 100%;
+  object-fit: cover;
+  object-position: 0% 20%;
+}
+
+.hero-recipe {
+  position: absolute;
+  top: var(--cssmall-spacing-l);
+  width: 100%;
+  color: var(--cssmall-color-text-on-dark);
+  height: fit-content;
+}
+
+.hero-recipe-text {
+  max-width: 60ch;
+  padding: var(--cssmall-spacing-l);
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 0 auto;
+  min-height: 19rem;
+}
+
+.hero-recipe-text h1 {
+  text-align: center;
+}
+
+.recipe-tags {
+  display: inline-flex;
+  width: 100%;
+  min-width: 71px;
+  justify-content: center;
+  gap: var(--cssmall-spacing-l);
+}
+
+
+/* ----- 3.2 Section ----- */
+
+section {
+  margin-bottom: var(--cssmall-spacing-xl) !important;
+}
+
+.section-header {
+  margin-bottom: var(--cssmall-spacing-s);
+}
+
+.section-header h2{
+  margin: 0;
+}
+
+/* ----- 3.3 Header ----- */
+
+header {
+  margin: 0 auto;
+  display: inline-flex;
+  justify-content: space-between;
+  width: calc(100% - 20%);
+  padding: 0 10%;
+}
+
+/* ----- 3.4 Picture ----- */
+
+picture img{
+  width: 100%;
+  height: 100%;
+}
+
+/* ----- 3.5 Carousel ----- */
+
+.books, #news, #categories, #relaterede {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--cssmall-spacing-l);
+  overflow-x: scroll;
+  height: calc(350px + var(--cssmall-spacing-m));
+}
+
+.books {
+  overflow-x: visible;
+}
+
+#relaterede .card-recipe {
+  width: 350px;
+}
+
+/* ----- 3.6 Enkelt opskrift ----- */
+
+.opskrift-intro .recipe-tags{
+  margin: var(--cssmall-spacing-s) 0;
+}
+
+.opskrift-ingredienser {
+  padding: var(--cssmall-spacing-l);
+  background-color: var(--cssmall-color-secondary-accent);
+}
+
+.opskrift-ingredienser h2, .opskrift-steps h2, .opskrift-notes h2,
+.opskrift-ingredienser h3, .opskrift-steps h3, .opskrift-notes h3
+{
+  margin-top: 0;
+}
+
+.opskrift-steps {
+  padding: var(--cssmall-spacing-l);
+}
+
+.opskrift-steps li , .opskrift-ingredienser li {
+  padding: var(--cssmall-spacing-xs) 0;
+}
+
+
+.opskrift-notes {
+  padding: var(--cssmall-spacing-l);
+  background-color: var(--cssmall-color-secondary-accent);
+}
+
+/* ----- 3.7 Navigation  ----- */
+
+nav {
+  display: flex;
+  text-align: center;
+  justify-content: flex-end;
+  width: 100%;
+  background-color: var(--cssmall-color-neutral-white);
+  z-index: 15;
+  transition: width 0.2s ease-in-out;
+}
+
+nav ul {
+  list-style-type: none;
+  align-content: center;
+}
+
+nav li {
+  display: inline-flex;
+  justify-content: space-evenly;
+  padding: var(--cssmall-spacing-s);
+}
+
+.open {
+  display: flex;
+}
+
+.active {
+  font-weight: 700;
+}
+
+.nav-btn {
+  cursor: default;
+  pointer-events: none;
+  display: none;
+}
+
+.nav-logo {
+  margin: auto 0;
+  max-width: 32px;
+  max-height: 32px;
+}
+
+.fuckThisMarginInParticular {
+  margin: 0 var(--cssmall-spacing-xs);
+}
+
+/* ----- 3.7 Footer  ----- */
+
+footer {
+  padding: var(--cssmall-spacing-l) var(--cssmall-spacing-m);
+  align-items: center;
+}
+
+footer .wrapper {
+  display: flex;
+  columns: 50% 2;
+  align-items: center;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+footer li {
+  display: inline-flex;
+  justify-content: space-evenly;
+  padding: var(--cssmall-spacing-s);
+}
+
+footer .underline {
+  color: inherit;
+  padding-bottom: 2px;
+  background: linear-gradient(var(--cssmall-color-neutral-white), var(--cssmall-color-neutral-white)) bottom;
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+}
+
+.footer-left {
+  width: 100%;
+  flex-direction: column;
+}
+
+.footer-right {
+  width: 100%;
+}
+
+.footer-some {
+  display: flex;
+  justify-content: space-around;
+  max-width: 35%;
+  gap: var(--cssmall-spacing-m);
+}
+
+/* ----- 3.9 Misc. Positions ----- */
+
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inline-flex {
+  display: inline-flex;
+  align-items: center;
+}
+
+.column-flex {
+  flex-direction: column;
+}
+
+.between-flex {
+  justify-content: space-between;
+}
+
+.end-flex {
+  justify-content: flex-end;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-self: flex-end;
+}
+
+.gap-flex {
+  gap: var(--cssmall-spacing-m);
+}
+
+.wrapper {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wide {
+  width: 100%;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.padding-extra {
+  padding-top: var(--cssmall-spacing-m);
+}
+
+/*  
+    =============
+    Components
+    =============
+*/
+
+/* ----- 4.1 Search ----- */
+
+#searchInput {
+  padding: var(--cssmall-spacing-s);
+  border: none;
+  width: 70%;
+}
+
+.search {
+  width: 70%;
+}
+
+button {
+  padding: var(--cssmall-spacing-s);
+  background: var(--cssmall-color-secondary);
+  border: none;
+  cursor: pointer;
+  /* position: relative; */
+  left: -3px;
+}
+
+/* ----- 4.2 Cards ----- */
+
+.card-book {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  min-width: 340px;
+  max-height: 250px;
+  columns: 50% 2;
+}
+
+.card-book img {
+  max-width: 50%;
+  height: auto;
+}
+
+.card-book-text {
+  padding: var(--cssmall-spacing-s);
+  align-self: center;
+}
+
+.card-recipe {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 288px;
+  min-height: 301px;
+  align-content: flex-start;
+  padding-bottom: var(--cssmall-spacing-s);
+  transition: all 0.2s ease-in-out;
+}
+
+.card-recipe:hover, .card-recipe:focus {
+  transform: scale(1.05);
+  background-size: 0% 0px;
+  z-index: 5;
+  outline: none;
+}
+
+.card-recipe h5 {
+  margin: 1rem 0.5rem;
+  padding: 0;
+  text-align: center;
+}
+
+.card-recipe img {
+  max-height: 10rem;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-recipe .recipe-tags {
+  margin-top: auto;
+}
+
+.card-recipe-header {
+  padding: var(--cssmall-spacing-xs) var(--cssmall-spacing-s);
+}
+
+/* ----- 4.3 Grid ----- */
+
+.grid-main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--cssmall-spacing-s);
+  overflow: visible;
+}
+
+.grid-main .card-recipe {
+  align-self: stretch;
+}
+
+.grid-equal-2x {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
+  gap: var(--cssmall-spacing-m);
+}
+
+.grid-equal-2x img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.grid-equal-2x-text {
+  max-width: 100%;
+  padding: var(--cssmall-spacing-l);
+  background-color: var(--cssmall-color-primary-accent);
+}
+/* ----- 4.4 Filter ----- */
+
+#filter {
+  width: calc(100% - (2 * var(--cssmall-spacing-xs)));
+  padding: var(--cssmall-spacing-xs);
+  cursor: pointer;
+  max-width: 100%;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+details {
+  width: 100%;
+  max-width: 300px;
+  flex-direction: row;
+  margin-bottom: var(--cssmall-spacing-s);
+}
+
+label {
+  display: inline-block;
+  width: 75%;
+  /* padding: var(--cssmall-spacing-xs); */
+}
+
+select {
+  width: 70px;
+}
+
+.block {
+  display: flex;
+  width: 80%;
+  margin: 0 auto var(--cssmall-spacing-xs) auto;
+  justify-content: space-between;
+}
+
+/* ----- 4.5 Slider ----- */
+
+.slide-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 var(--cssmall-spacing-s);
+}
+
+.slider {
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 15px;
+  outline: none;
+  background-color: var(--cssmall-color-neutral-white);
+  transition: background-color 0.2s;
+}
+
+.slider:hover, .slider:focus {
+  background-color: var(--cssmall-color-neutral-lighterx);
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: var(--cssmall-spacing-s);
+  height: var(--cssmall-spacing-s);
+  border: 0;
+  border-radius: 50px;
+  background-color: var(--cssmall-color-secondary);
+  cursor: pointer;
+  position: relative;
+  top: -4px;
+}
+
+.slider::-moz-range-thumb {
+  appearance: none;
+  width: var(--cssmall-spacing-s);
+  height: var(--cssmall-spacing-s);
+  border: 0;
+  border-radius: 50px;
+  background-color: var(--cssmall-color-secondary);
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-runnable-track {
+  height: 100%;
+  border-radius: 50px;
+}
+
+.slider::-moz-range-progress {
+  height: 100%;
+  border-radius: inherit;
+  background-color: var(--cssmall-color-secondary-accent);
+}
+
+/* ----- 4.6 Icons ----- */
+
+.time:before {
+  content: "";
+  background-image: url(../images/clock-regular.svg);
+  background-size: cover;
+  position: relative;
+  display: inline-block;
+  left: 0px;
+  top: 2px;
+  width: 1rem;
+  height: 1rem;
+  filter: invert(46%) sepia(81%) saturate(464%) hue-rotate(341deg) brightness(97%) contrast(91%);
+}
+
+.tag:before {
+  content: "";
+  background-image: url(../images/tag-solid.svg);
+  background-size: cover;
+  position: relative;
+  display: inline-block;
+  left: 0px;
+  top: 2px;
+  width: 1rem;
+  height: 1rem;
+  filter: invert(46%) sepia(81%) saturate(464%) hue-rotate(341deg) brightness(97%) contrast(91%);
+}
+
+
+.icon-some {
+  font-size: 1.5rem;
+}
+
+.logo {
+  font-size: 3rem;
+}
+
+/* ----- 4.7 CTA button ----- */
+
+.cta-btn {
+  padding: var(--cssmall-spacing-xs) var(--cssmall-spacing-m);
+  border: 2px solid var(--cssmall-color-secondary);
+  transition: 0.2s all ease-in-out;
+  min-width: 105px;
+  text-align: center;
+}
+
+.cta-btn:hover, .cta-btn:focus {
+  background: none;
+  background-color: var(--cssmall-color-secondary);
+  color: var(--cssmall-color-text-on-dark);
+  outline: none;
+}
+
+/*  
+    =============
+    5. Media qurries
+    =============
+*/
+
+@media screen and (max-width: 1400px) {
+  .books {
+    overflow-x: scroll;
+  }
+  .grid-main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .grid-main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 920px) {
+  footer .wrapper{
+    flex-direction: column;
+    columns: 100% 1;
+    gap: var(--cssmall-spacing-m);
+  }
+  .wrapper {
+    width: 90%;
+  }
+  nav {
+    display: none;
+  }
+  .nav-btn {
+    padding: var(--cssmall-spacing-s);
+    cursor: pointer;
+    pointer-events: all;
+    display: block;
+  }
+  nav.open {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: var(--cssmall-color-primary);
+    color: var(--cssmall-color-text-on-dark);
+    z-index: 5;
+    width: 50%;
+    height: 200%;
+  }
+  nav.open ul {
+    display: flex;
+    flex-direction: column;
+    padding: var(--cssmall-spacing-xl);
+    font-size: xx-large;
+  }
+  header {
+    width: calc(100% - 10%);
+    padding: 0 5%;
+  }
+}
+
+@media screen and (max-width: 852px) {
+  .grid-equal-2x {
+    grid-template-columns: 1fr;
+  }
+  .grid-equal-2x-text {
+    padding: var(--cssmall-spacing-m);
+  }
+  .hide {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .grid-main {
+    grid-template-columns: 1fr;
+  }
+  .filter-container {
+    flex-direction: column;
+  }
+  .slide-container {
+    margin: 0;
+  }
+  .slider {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .hero-recipe {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 29rem;
+    color: var(--cssmall-color-text-on-dark);
+  }
+  .hero-recipe-text {
+    height: 29rem;
+    padding: var(--cssmall-spacing-s);
+  }
+  nav.open {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 476px) {
+  .cta-btn {
+    font-size: 80%;
+    padding: var(--cssmall-spacing-xs) var(--cssmall-spacing-s);
+  }
+}
